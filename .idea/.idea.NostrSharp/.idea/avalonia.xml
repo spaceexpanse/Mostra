@@ -3,7 +3,9 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="NostrSharp/Message.axaml" value="NostrSharp/NostrSharp.csproj" />
         <entry key="NostrSharp/Views/MainWindow.axaml" value="NostrSharp/NostrSharp.csproj" />
+        <entry key="NostrSharp/Views/Message.axaml" value="NostrSharp/NostrSharp.csproj" />
       </map>
     </option>
   </component>
