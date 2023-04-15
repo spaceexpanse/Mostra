@@ -5,7 +5,7 @@ namespace NostrLib;
 
 public class MyDbContext : DbContext
 {
-    public DbSet<NNostr.Client.NostrEvent> Events { get; set; }
+    
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
