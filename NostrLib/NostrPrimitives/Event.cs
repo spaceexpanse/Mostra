@@ -49,7 +49,7 @@ public class Event
         Id = GenerateId();
         var ecPrivateKey = NBitcoin.Secp256k1.ECPrivKey.Create(Encoding.UTF8.GetBytes(privateKey).AsSpan()[..32]);
         var ecPublicKey = ecPrivateKey.CreatePubKey();
-        Signature = GenerateSignature();
+        Signature = GenerateSignature(ecPrivateKey);
     }
 
     /// <summary>
