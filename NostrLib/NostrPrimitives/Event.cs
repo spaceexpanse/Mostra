@@ -32,6 +32,7 @@ public class Event
     /// Constructor for a new Event.
     /// </summary>
     /// <param name="publicKey">PubKey of the user signing the event</param>
+    /// <param name="privateKey">Private key for user signing event</param>
     /// <param name="kind">NIP kind of the event</param>
     /// <param name="tags">Tags for the event</param>
     /// <param name="content">Content payload of the event</param>
@@ -43,12 +44,16 @@ public class Event
         Content = content;
         
         // Get current Unix Timestamp
-        DateTime now = DateTime.UtcNow;
-        DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+        var now = DateTime.UtcNow;
+        var unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
         CreatedAt = (long)(now - unixEpoch).TotalSeconds;
-        Id = GenerateId();
+        
+        // Handle keys
         var ecPrivateKey = NBitcoin.Secp256k1.ECPrivKey.Create(Encoding.UTF8.GetBytes(privateKey).AsSpan()[..32]);
         var ecPublicKey = ecPrivateKey.CreatePubKey();
+        PublicKey = ecPublicKey.ToString();
+        
+        Id = GenerateId(); 
         Signature = GenerateSignature(ecPrivateKey);
     }
 
@@ -68,11 +73,13 @@ public class Event
 
     public string GenerateSignature(NBitcoin.Secp256k1.ECPrivKey privateKey)
     {
-        if (Id != null)
-        {
-            var buffer = privateKey.SignBIP340(Encoding.UTF8.GetBytes(Id).AsSpan()[..32]).ToBytes();
-            return string.Concat(buffer.Select(item => item.ToString("x2"))).ToLowerInvariant();
-        }
-        return string.Empty;
+        if (Id == null) return string.Empty;
+        var buffer = privateKey.SignBIP340(Encoding.UTF8.GetBytes(Id).AsSpan()[..32]).ToBytes();
+        return string.Concat(buffer.Select(item => item.ToString("x2"))).ToLowerInvariant();
+    }
+
+    public bool ValidateSignature()
+    {
+        throw new NotImplementedException();
     }
 }

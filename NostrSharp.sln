@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NostrSharp", "NostrSharp\No
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NostrLib", "NostrLib\NostrLib.csproj", "{5BD04C00-28BB-46A4-91F5-AA277A6CEB39}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTester", "ConsoleTester\ConsoleTester.csproj", "{BDBED697-08AD-41B1-9AC5-33D392C4C8BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{5BD04C00-28BB-46A4-91F5-AA277A6CEB39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BD04C00-28BB-46A4-91F5-AA277A6CEB39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BD04C00-28BB-46A4-91F5-AA277A6CEB39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDBED697-08AD-41B1-9AC5-33D392C4C8BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDBED697-08AD-41B1-9AC5-33D392C4C8BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDBED697-08AD-41B1-9AC5-33D392C4C8BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDBED697-08AD-41B1-9AC5-33D392C4C8BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
