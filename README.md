@@ -1,4 +1,4 @@
-# NostrSharp
+# Mostra
 
 NostrSharp is a Nostr client written entirely in C#, using Microsoft's .NET Core platform.
 It is released under the MIT licence, and is free to use for any purpose.
